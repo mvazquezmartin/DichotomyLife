@@ -1,4 +1,4 @@
-const HTTTP_STATUS_CODES = {
+const HTTP_STATUS_CODES = {
   OK: 200,
   CREATED: 201,
   ACCEPTED: 202,
@@ -10,4 +10,4 @@ const HTTTP_STATUS_CODES = {
   INTERNAL_SERVER_ERROR: 500,
 };
 
-export default HTTTP_STATUS_CODES;
+export default HTTP_STATUS_CODES;

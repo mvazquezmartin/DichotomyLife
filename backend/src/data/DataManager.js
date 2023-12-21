@@ -8,10 +8,28 @@ class DataManager {
     this.inicializeData();
   }
 
-  async create(data) {
+  async create(vote) {
     try {
+      const existingVote = this.data.find((item) => item.id === vote);
+
+      if (existingVote) {
+        existingVote.votes++;
+        await this.saveFile();
+        return this.data;
+      } else {
+        return { error: `invalid vote ${vote}` };
+      }
     } catch (error) {
       console.log("Error in create", error);
+      throw error;
+    }
+  }
+
+  async getAll() {
+    try {
+      return this.data;
+    } catch (error) {
+      console.log("Error in getAll", error);
       throw error;
     }
   }
@@ -31,6 +49,16 @@ class DataManager {
       return [];
     } catch (error) {
       console.log("Error in readData", error);
+      throw error;
+    }
+  }
+
+  async saveFile() {
+    try {
+      const jsonData = JSON.stringify(this.data);
+      await fs.promises.writeFile(this.votesFilePath, jsonData);
+    } catch (error) {
+      console.log("Error in saveFile", error);
       throw error;
     }
   }
