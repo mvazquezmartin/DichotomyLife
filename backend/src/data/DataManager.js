@@ -2,8 +2,10 @@ import fs from "fs";
 
 class DataManager {
   constructor(path) {
-    this.filePath = path;
+    this.votesFilePath = path;
+    this.geoFilePath = path;
     this.data = [];
+    this.inicializeData();
   }
 
   async create(data) {
@@ -14,9 +16,17 @@ class DataManager {
     }
   }
 
+  async createGeo(data) {
+    try {
+    } catch (error) {
+      console.log("Error in createGeo", error);
+      throw error;
+    }
+  }
+
   async readData() {
     try {
-      const data = await fs.promises.readFile(this.filePath, "utf-8");
+      const data = await fs.promises.readFile(this.votesFilePath, "utf-8");
       if (data) return JSON.parse(data);
       return [];
     } catch (error) {
