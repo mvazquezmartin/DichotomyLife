@@ -3,7 +3,6 @@ import fs from "fs";
 class DataManager {
   constructor(path) {
     this.votesFilePath = path;
-    this.geoFilePath = path;
     this.data = [];
     this.inicializeData();
   }
@@ -30,14 +29,6 @@ class DataManager {
       return this.data;
     } catch (error) {
       console.log("Error in getAll", error);
-      throw error;
-    }
-  }
-
-  async createGeo(data) {
-    try {
-    } catch (error) {
-      console.log("Error in createGeo", error);
       throw error;
     }
   }
