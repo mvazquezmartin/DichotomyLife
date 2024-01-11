@@ -7,8 +7,7 @@ class VotesService {
   }
 
   async getAll() {    
-    const data = await this.dataManager.getAll();
-    
+    const data = await this.dataManager.getAll();    
     if (!data) return { code: HTTP_STATUS_CODES };
     return data;
   }
