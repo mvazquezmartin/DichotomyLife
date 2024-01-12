@@ -1,4 +1,4 @@
-const HTTP_STATUS_CODES = {
+const CODES = {
   OK: 200,
   CREATED: 201,
   ACCEPTED: 202,
@@ -10,4 +10,16 @@ const HTTP_STATUS_CODES = {
   INTERNAL_SERVER_ERROR: 500,
 };
 
-export default HTTP_STATUS_CODES;
+const MESSAGES = {
+  200: "OK",
+  201: "Created",
+  202: "Accepted",
+  400: "Bad Request",
+  401: "Unauthorized",
+  403: "Forbidden",
+  404: "Not Found",
+  409: "Conflict",
+  500: "Internal Server Error",
+};
+
+export default { CODES, MESSAGES };

@@ -1,16 +1,12 @@
 import { Router } from "express";
-import path, { dirname } from "path";
+import path from "path";
 import HTTP_STATUS from "../constant/HTTP_STATUS.js";
 import VotesService from "../service/vote.service.js";
-import { fileURLToPath } from "url";
+import __dirname from "../utils/dirname.utils.js";
 
-const router = Router();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const dataVotes = path.join(__dirname, "../data/votes.json");
-
+const dataVotes = path.join(__dirname, "/data/votes.json");
 const VoteService = new VotesService(dataVotes);
+const router = Router();
 
 router.get("/", async (req, res) => {
   try {
@@ -18,9 +14,9 @@ router.get("/", async (req, res) => {
     res.status(200).json(response);
   } catch (error) {
     console.log(error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
+    res.status(HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR).json({
       status: "error",
-      message: "Internal server error",
+      message: HTTP_STATUS.MESSAGES[HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR],
     });
   }
 });
@@ -28,12 +24,11 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const vote = req.query;
-        
   } catch (error) {
     console.log(error);
-    res.status(HTTP_STATUS.INTERNAL_SERVER_ERROR).json({
+    res.status(HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR).json({
       status: "error",
-      message: "Internal server error",
+      message: HTTP_STATUS.MESSAGES[HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR],
     });
   }
 });
