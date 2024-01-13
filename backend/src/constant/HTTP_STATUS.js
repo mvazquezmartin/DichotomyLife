@@ -22,4 +22,5 @@ const MESSAGES = {
   500: "Internal Server Error",
 };
 
+
 export default { CODES, MESSAGES };
