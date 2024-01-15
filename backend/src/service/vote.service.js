@@ -21,6 +21,10 @@ class VotesService {
       payload: data,
     };
   }
+
+  async create(idVote,data){
+    
+  }
 }
 
 export default VotesService;

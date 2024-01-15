@@ -27,7 +27,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const vote = req.query;
+    const idVote = req.query;
+    const data = req.body;
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR).json({
