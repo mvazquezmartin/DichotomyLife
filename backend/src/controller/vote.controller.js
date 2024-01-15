@@ -11,7 +11,11 @@ const router = Router();
 router.get("/", async (req, res) => {
   try {
     const response = await VoteService.getAll();
-    res.status(200).json(response);
+    res.status(response.code).json({
+      status: response.status,
+      message: response.message,
+      data: response.payload,
+    });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR).json({
