@@ -27,8 +27,15 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const idVote = req.query;
     const data = req.body;
+
+    res.status(200).json(data);
+    // const response = await VoteService.create();
+
+    // res.status(response.code).json({
+    //   status: response.status,
+    //   message: response.message,
+    // });
   } catch (error) {
     console.log(error);
     res.status(HTTP_STATUS.CODES.INTERNAL_SERVER_ERROR).json({
