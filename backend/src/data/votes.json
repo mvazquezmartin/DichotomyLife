@@ -2,11 +2,13 @@
   {
     "id": "blue",
     "votes": 0,
-    "contries": {}
+    "contries": {},
+    "gender": { "male": 0, "female": 0 }
   },
   {
     "id": "red",
     "votes": 0,
-    "contries": {}
+    "contries": {},
+    "gender": { "male": 0, "female": 0 }
   }
 ]
